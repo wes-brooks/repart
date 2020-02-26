@@ -13,7 +13,7 @@ make_tree <- function(data, outcome) {
         # calculate the entropy contributed by all other nodes, excluding this one
         outside_entropy <- my_tree[["metadata"]][["entropy"]] - node[["entropy"]]
         
-        # test splitting at this node - only returns the variable taht maximizes entropy at this node
+        # test splitting at this node - only returns the variable that maximizes entropy at this node
         possible_splits[[node]] = max(test_entropy(node) + outside_entropy)[[1]]
       }
     }
