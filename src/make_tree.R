@@ -8,13 +8,15 @@ make_tree <- function(data, outcome) {
   while (TRUE) {
     possible_splits = list()
     
-    for (node in tree[["nodes"]]) {
+    for (i in 1:length(tree[["nodes"]])) {
+      node <- tree[["nodes"]][[i]]
+      
       if (node[["metadata"]][["leaf"]]) {
         # calculate the entropy contributed by all other nodes, excluding this one
         outside_entropy <- my_tree[["metadata"]][["entropy"]] - node[["entropy"]]
         
         # test splitting at this node - only returns the variable that maximizes entropy at this node
-        possible_splits[[node]] = max(test_entropy(node) + outside_entropy)[[1]]
+        possible_splits[[i]] = max(test_entropy(node) + outside_entropy)[[1]]
       }
     }
     
