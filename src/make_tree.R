@@ -22,7 +22,7 @@ make_tree <- function(data, outcome) {
     
     # do the split that has the biggest increase in entropy. This part is still pseudocodey.
     my_split = which.max(possible_splits)
-    if (my_split[["entropy"]] > prior_entropy) {
+    if (my_split[["entropy"]] > prior_entropy + threshold) {
       tree[[my_split]] = do_split(node, my_split)
       tree[["metadata"]][["entropy"]] <- my_split[["entropy"]]
     } else {
