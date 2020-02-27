@@ -1,4 +1,5 @@
-# return two new nodes, from splitting the data on a dichotomous variable
+#' Return two new nodes, from splitting the data on a dichotomous variable
+#' @export
 do_split <- function(node, split) {
   children <- list()
   df <- node[["data"]]

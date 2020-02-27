@@ -1,4 +1,5 @@
-# loop over the possible splits within this node. Returns a named list where the name is a variable name and the value is the node's entropy if a split is made on that variable.
+#' loop over the possible splits within this node. Returns a named list where the name is a variable name and the value is the node's entropy if a split is made on that variable.
+#' @export
 test_split <- function(node, minbin = 5) {
   df <- node[["data"]]
   vars <- colnames(df)

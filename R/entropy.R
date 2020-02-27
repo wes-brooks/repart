@@ -1,3 +1,5 @@
+#' Calculate the classification entropy of a factor
+#' @export
 entropy <- function(bins) {
   if (nrow(bins) == 0) {0}
   else {
