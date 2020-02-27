@@ -1,0 +1,9 @@
+Package: repart
+Type: Package
+Title: What the package does (short line)
+Version: 0.1
+Date: 2020-02-26
+Author: Wesley Brooks
+Maintainer: Wesley Brooks <wbrooks@ucdavis.edu>
+Description: More about what it does (maybe more than one line)
+License: MIT
