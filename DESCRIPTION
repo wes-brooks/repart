@@ -1,9 +1,12 @@
 Package: repart
 Type: Package
-Title: What the package does (short line)
+Title: A package to estimate classification trees with random effects
 Version: 0.1
 Date: 2020-02-26
 Author: Wesley Brooks
 Maintainer: Wesley Brooks <wbrooks@ucdavis.edu>
-Description: More about what it does (maybe more than one line)
-License: MIT
+Description: This package estimates a classification tree that incorporates random effects.
+License: MIT + file LICENSE
+RoxygenNote: 7.0.2
+Encoding: UTF-8
+Depends: R (>= 3.5.0)
