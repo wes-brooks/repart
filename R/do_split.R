@@ -1,4 +1,8 @@
 #' Return two new nodes, from splitting the data on a dichotomous variable
+
+#' @param node A node of the tree
+#' @param split A list that tells repart which variable to split the node on
+#' @return The node, changed from a leaf to a branch
 #' @export
 do_split <- function(node, split) {
   children <- list()
