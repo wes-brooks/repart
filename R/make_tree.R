@@ -1,4 +1,8 @@
 #' Make a classification tree
+#' 
+#' @param data The data frame containing all the input variables
+#' @param outcome The known outcomes of the tree
+#' @return A classification tree to predict the distribution of the outcome based on the supplied data
 #' @export
 make_tree <- function(data, outcome) {
   my_tree <- list()

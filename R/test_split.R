@@ -1,4 +1,8 @@
-#' loop over the possible splits within this node. Returns a named list where the name is a variable name and the value is the node's entropy if a split is made on that variable.
+#' Loop over the possible splits within this node. Returns a named list where the name is a variable name and the value is the node's entropy if a split is made on that variable.
+#' 
+#' @param node The node that is being tested
+#' @param minbin The minimum number of observations in a leaf node
+#' @return Maximum entropy that can be achieved by splitting at this node
 #' @export
 test_split <- function(node, minbin = 5) {
   df <- node[["data"]]
