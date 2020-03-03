@@ -4,34 +4,35 @@
 #' @param outcome The known outcomes of the tree
 #' @return A classification tree to predict the distribution of the outcome based on the supplied data
 #' @export
-make_tree <- function(data, outcome) {
+make_tree <- function(data, outcome, threshold = 2) {
   my_tree <- list()
-  my_tree[["nodes"]][[1]] <- list(data = data, outcome = outcome, entropy = nrow(outcome) * entropy(outcome), leaf=TRUE)
-  my_tree[["metadata"]] <- list(entropy = my_tree[["nodes"]][[1]][["entropy"]], data = data)
-  
-  # prior_loss is the 
-  
-  while (TRUE) {
-    possible_splits = list()
-    split_table <- data.frame(ncol=3)
+  my_tree[[ "nodes" ]][[ 1L ]] <- list(data = data, outcome = outcome, entropy = nrow(outcome) * entropy(outcome), leaf=TRUE)
+  my_tree[[ "metadata" ]] <- list(entropy = my_tree[[ "nodes" ]][[ 1 ]][[ "entropy" ]], data = data)
+  my_tree[[ "size" ]] <- 1L
     
-    for (i in 1:length(tree[["nodes"]])) {
-      node <- tree[["nodes"]][[i]]
+  while ( TRUE ) {
+    # possible_splits = list()
+    split_table <- data.frame()
+    
+    for ( i in 1:length( my_tree[[ "nodes" ]] ) ) {
+      node <- my_tree[[ "nodes" ]][[ i ]]
       
-      if (node[["metadata"]][["leaf"]]) {
+      if ( node[[ "leaf" ]] ) {
         # calculate the entropy contributed by all other nodes, excluding this one
-        outside_entropy <- my_tree[["metadata"]][["entropy"]] - node[["entropy"]]
+        outside_entropy <- my_tree[[ "metadata" ]][[ "entropy" ]] - node[[ "entropy" ]]
         
         # test splitting at this node - only returns the variable that maximizes entropy at this node
-        test <- test_entropy(node)
-        max_index <- which.max(test)[[1]]
-        possible_splits[[i]] = max(test) + outside_entropy
+        test <- test_split( node )
+        max_index <- which.max( test )[[ 1L ]]
+        # possible_splits[[ i ]] <- max( test ) + outside_entropy
         
         # populate the table of splits
-        split_table <- rbind(split_table, c(node = i,
-                                            variable = names(test)[max_index],
+        split_table <- rbind(split_table, data.frame(node = i,
+                                            variable = names( test )[ max_index ],
                                             split = 'binary',
-                                            entropy = max(test) + outside_entropy))
+                                            entropy = max( test ) + outside_entropy,
+                                            stringsAsFactors = FALSE)
+                             )
       } else {
         
       }
@@ -41,13 +42,23 @@ make_tree <- function(data, outcome) {
     splindx = which.max(split_table$entropy)
     my_split <- split_table[splindx, ]
     
-    if ( my_split[[ "entropy" ]] > prior_entropy + threshold) {
-      tree[[ my_split[[ "node" ]] ]] = do_split( node, my_split )
-      tree[[ "metadata" ]][[ "entropy" ]] <- my_split[[ "entropy" ]]
+    if ( my_split[[ "entropy" ]] > my_tree[[ "metadata" ]][[ "entropy" ]] + threshold) {
+      # my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]] = do_split( node, my_split )
+      new_split <- do_split( my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]], my_split )
+      my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]] <- new_split[[ 1L ]]
+      my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]][[ "children" ]] <- 
+        my_tree[[ "size" ]] + 1:length( new_split[[ 2L ]] )
+      
+      my_tree[[ "nodes" ]] = c( my_tree[[ "nodes" ]], new_split[[ 2L ]] )
+      
+      my_tree[[ "size" ]] <- my_tree[[ "size" ]] + length( new_split[[ 2L ]] )
+      my_tree[[ "metadata" ]][[ "entropy" ]] <- my_split[[ "entropy" ]]
     } else {
       # stop looping if we haven't improved
       break
     }
     
   }
+  
+  my_tree
 }

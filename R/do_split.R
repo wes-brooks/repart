@@ -24,11 +24,12 @@ do_split <- function(node, split) {
   }
   
   # attach some metadata to this node
-  node[["leaf"]] <- FALSE
-  node[["split"]] <- split
-  node[["children"]] <- children
-  node[["entropy"]] <- sum( sapply(children, function(ch) ch[["entropy"]]) )
+  parent = list()
+  parent[["leaf"]] <- FALSE
+  parent[["split"]] <- split
+  parent[["entropy"]] <- sum( sapply(children, function(ch) ch[[ "entropy" ]]) )
+  parent[[ "data" ]] <- df
   
   # return value
-  node
+  list(parent, children)
 }

@@ -8,6 +8,7 @@ entropy <- function(bins) {
   else {
     # bins <- next_iter #this should be the assignment indicators for this group, including random effects.
     pp <- colSums(bins) / sum(bins)
-    sum(pp * log2(pp))
+    
+    sum( ifelse(pp == 0, 0, pp * log2(pp)) )
   }
 }
