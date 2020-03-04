@@ -20,7 +20,8 @@ do_split <- function(node, split) {
     children[[i]] <- list(data = df_child,
                           outcome = outcome_child,
                           entropy = nrow(outcome_child) * entropy(outcome_child),
-                          leaf = TRUE)
+                          leaf = TRUE,
+                          parent = split[[ "node" ]])
   }
   
   # attach some metadata to this node
@@ -29,6 +30,7 @@ do_split <- function(node, split) {
   parent[["split"]] <- split
   parent[["entropy"]] <- sum( sapply(children, function(ch) ch[[ "entropy" ]]) )
   parent[[ "data" ]] <- df
+  parent[[ "parent" ]] <- node[[ "parent" ]]
   
   # return value
   list(parent, children)

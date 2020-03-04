@@ -7,7 +7,7 @@
 make_tree <- function(data, outcome, threshold = 2) {
   my_tree <- list()
   my_tree[[ "nodes" ]][[ 1L ]] <- list(data = data, outcome = outcome, entropy = nrow(outcome) * entropy(outcome), leaf=TRUE)
-  my_tree[[ "metadata" ]] <- list(entropy = my_tree[[ "nodes" ]][[ 1 ]][[ "entropy" ]], data = data)
+  my_tree[[ "metadata" ]] <- list(entropy = my_tree[[ "nodes" ]][[ 1 ]][[ "entropy" ]], data = data, outcome = outcome)
   my_tree[[ "size" ]] <- 1L
     
   while ( TRUE ) {
@@ -44,7 +44,8 @@ make_tree <- function(data, outcome, threshold = 2) {
     
     if ( my_split[[ "entropy" ]] > my_tree[[ "metadata" ]][[ "entropy" ]] + threshold) {
       # my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]] = do_split( node, my_split )
-      new_split <- do_split( my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]], my_split )
+      my_node <- my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]]
+      new_split <- do_split( my_node, my_split )
       my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]] <- new_split[[ 1L ]]
       my_tree[[ "nodes" ]][[ my_split[[ "node" ]] ]][[ "children" ]] <- 
         my_tree[[ "size" ]] + 1:length( new_split[[ 2L ]] )
