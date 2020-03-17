@@ -3,7 +3,7 @@
 #' @param node A classification tree
 #' @return A matrix of the classwise residuals
 #' @export
-residuals.repart <- function( tree, type = "logit" ) {
+residuals.repart_deprecated <- function( tree, type = "logit" ) {
   resid <- matrix(nrow = 0, ncol = ncol( tree[[ "metadata" ]][[ "outcome" ]] ) )
   
   # loop over the nodes in the tree and get the residuals from each leaf node
