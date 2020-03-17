@@ -22,7 +22,7 @@ make_tree <- function(formula, data, outcome, splitfun, weights = NULL, adjust_t
               max( abs( weights - floor( weights ) ) ) < .Machine$double.eps)
   
   ## grow tree
-  nodes <- grow_tree2(id = 1L, response, data, outcome, weights, splitfun, adjust_threshold, ...)
+  nodes <- grow_tree(id = 1L, response, data, outcome, weights, splitfun, adjust_threshold, ...)
   
   ## compute terminal node number for each observation 
   fitted <- fitted_node(nodes, data = data)
