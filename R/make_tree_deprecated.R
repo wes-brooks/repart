@@ -3,8 +3,7 @@
 #' @param data The data frame containing all the input variables
 #' @param outcome The known outcomes of the tree
 #' @return A classification tree to predict the distribution of the outcome based on the supplied data
-#' @export
-make_tree <- function(data, outcome, threshold = 2) {
+make_tree_deprecated <- function(data, outcome, threshold = 2) {
   my_tree <- list()
   my_tree[[ "nodes" ]][[ 1L ]] <- list(data = data, outcome = outcome, entropy = nrow(outcome) * entropy(outcome), leaf=TRUE)
   my_tree[[ "metadata" ]] <- list(entropy = my_tree[[ "nodes" ]][[ 1 ]][[ "entropy" ]], data = data, outcome = outcome)
