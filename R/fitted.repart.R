@@ -3,7 +3,7 @@
 #' @param tree The tree model from which to extract the fitted values
 #' @return The fitted values for the observations used to estimate the tree model
 #' @export
-fitted.repart <- function( tree ) {
+fitted.repart <- function( object, ... ) {
   
   # recover the outcome factor from the input data
   outcome <- stats::model.matrix( ~ -1 + `(response)`, data = tree$fitted )
