@@ -1,7 +1,12 @@
 #' Make a classification tree
 #' 
 #' @param data The data frame containing all the input variables
-#' @param outcome The known outcomes of the tree
+#' @param formula A `formula` describing the function to be estimated by the table
+#' @param data A `data.frame` containing the data toi be used in fitting the model
+#' @param outcome A `matrix` of binned outcomes for training the tree
+#' @param splitfun The function to use in assessing each split
+#' @param weights A `vector` of prior weights
+#' @param adjust_threshold A function used to adjust the output of `splitfun` before assessing possible splits 
 #' @return A classification tree to predict the distribution of the outcome based on the supplied data
 #' @export
 #' 
