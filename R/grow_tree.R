@@ -17,7 +17,7 @@ grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjus
     
     ## select observations for current node
     w <- weights
-    w[kidids != kidid] <- 0
+    w[ kidids != kidid ] <- 0
     
     ## get next node id
     if( kidid > 1 ) {
@@ -27,7 +27,7 @@ grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjus
     }
     
     ## start recursion on this daugther node
-    kids[[kidid]] <- grow_tree(id = as.integer(myid + 1), response, data, outcome, w, splitfun, adjust_threshold, ...) 
+    kids[[ kidid ]] <- grow_tree(id = as.integer(myid + 1), response, data, outcome, w, splitfun, adjust_threshold, ...) 
   }
   
   return(
