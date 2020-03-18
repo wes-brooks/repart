@@ -6,10 +6,10 @@ grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjus
   sp <- find_split( response, data, outcome, splitfun, weights, adjust_threshold, ... )
   
   ## no split found, stop here
-  if ( is.null(sp) ) return( partynode(id = id) ) 
+  if ( is.null(sp) ) return( partykit::partynode(id = id) ) 
   
   ## actually split the data
-  kidids <- kidids_split( sp, data = data ) 
+  kidids <- partykit::kidids_split( sp, data = data ) 
   
   ## set up all daugther nodes
   kids <- vector( mode = "list", length = max( kidids, na.rm = TRUE ) )
@@ -21,7 +21,7 @@ grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjus
     
     ## get next node id
     if( kidid > 1 ) {
-      myid <- max( nodeids( kids[[ kidid - 1 ]] ) )
+      myid <- max( partykit::nodeids( kids[[ kidid - 1 ]] ) )
     } else {
       myid <- id
     }
@@ -31,11 +31,11 @@ grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjus
   }
   
   return(
-    partynode(
+    partykit::partynode(
       id = as.integer(id),
       split = sp,
       kids = kids,
-      info = list( criterion = min( info_split(sp)$criterion, na.rm=TRUE) )
+      info = list( criterion = min( partykit::info_split(sp)$criterion, na.rm=TRUE) )
     ) 
   )
 }
