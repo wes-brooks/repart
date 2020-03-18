@@ -21,7 +21,7 @@ find_split <- function(response, data, outcome, splitfun, weights, adjust_thresh
     if ( length(lev) == 2 ) {
       splitpoint <- lev[1]
     } else {
-      comb <- do.call("c", lapply(1:(length(lev) - 2),
+      utils::comb <- do.call("c", lapply(1:(length(lev) - 2),
                                   function(x) combn(lev, x, simplify = FALSE)))
       xlogp <- sapply(comb, function(q) splitfun(x %in% q))
       splitpoint <- comb[[ which.min(xlogp) ]]
