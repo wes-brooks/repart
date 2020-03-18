@@ -8,8 +8,8 @@
 residuals.repart <- function( object, type = "logit", ... ) {
   
   # get the fitted values
-  outcome <- stats::model.matrix( ~ -1 + `(response)`, data = tree$fitted )
-  fit <- fitted.repart( tree )
+  outcome <- stats::model.matrix( ~ -1 + `(response)`, data = object$fitted )
+  fit <- fitted.repart( object )
   
   # calculate residuals as observed - fitted
   resid <- outcome - fit
