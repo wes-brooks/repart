@@ -14,5 +14,5 @@ chi_squared_factor <- function( x, outcome, weights ) {
   
   # calculate the p-value of a chi-squared test for independence between x and outcome.
   ct <- suppressWarnings( chisq.repart( table.repart( outcome, x, weights ) ) )
-  pchisq( ct$statistic, ct$parameter, log = TRUE, lower.tail = FALSE )
+  stats::pchisq( ct$statistic, ct$parameter, log = TRUE, lower.tail = FALSE )
 }

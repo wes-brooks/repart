@@ -6,7 +6,7 @@
 fitted.repart <- function( tree ) {
   
   # recover the outcome factor from the input data
-  outcome <- model.matrix( ~ -1 + `(response)`, data = tree$fitted )
+  outcome <- stats::model.matrix( ~ -1 + `(response)`, data = tree$fitted )
   fitted <-  matrix( NA, nrow = nrow( outcome ), ncol = ncol( outcome ) )
   colnames( fitted ) <- levels(tree$fitted[[ "(response)" ]])
   

@@ -36,7 +36,7 @@ find_split <- function(response, data, outcome, splitfun, weights, adjust_thresh
   
   ## return split as partysplit object
   return(
-    partysplit(varid = as.integer(xselect),
+    partykit::partysplit(varid = as.integer(xselect),
                index = splitindex,
                info = list(criterion = split_utility) )
   )
