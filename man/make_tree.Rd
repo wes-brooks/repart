@@ -4,12 +4,28 @@
 \alias{make_tree}
 \title{Make a classification tree}
 \usage{
-make_tree(data, outcome)
+make_tree(
+  formula,
+  data,
+  outcome,
+  splitfun,
+  weights = NULL,
+  adjust_threshold = identity,
+  ...
+)
 }
 \arguments{
-\item{data}{The data frame containing all the input variables}
+\item{formula}{A `formula` describing the function to be estimated by the table}
 
-\item{outcome}{The known outcomes of the tree}
+\item{data}{A `data.frame` containing the data toi be used in fitting the model}
+
+\item{outcome}{A `matrix` of binned outcomes for training the tree}
+
+\item{splitfun}{The function to use in assessing each split}
+
+\item{weights}{A `vector` of prior weights}
+
+\item{adjust_threshold}{A function used to adjust the output of `splitfun` before assessing possible splits}
 }
 \value{
 A classification tree to predict the distribution of the outcome based on the supplied data

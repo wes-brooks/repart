@@ -4,7 +4,7 @@
 \alias{entropy}
 \title{Calculate the classification entropy of a factor}
 \usage{
-entropy(bins)
+entropy(x, outcome, weights)
 }
 \arguments{
 \item{bins}{The outcome variable, represented as a data.frame where each column is an indicator for one level of the factor}
