@@ -1,6 +1,6 @@
 #' Calculate residuals for a classification tree
 #' 
-#' @param tree A classification tree fitted by repart
+#' @param object A classification tree fitted by repart
 #' @param type The typr of residuals to compute
 #' @param ... Other arguments passed to residuals
 #' @return A matrix of the classwise residuals

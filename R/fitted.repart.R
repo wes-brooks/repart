@@ -1,6 +1,6 @@
 #' Extract the fitted values from the tree model
 #' 
-#' @param tree The tree model from which to extract the fitted values
+#' @param object The tree model from which to extract the fitted values
 #' @param ... any additional parameters passed to `fitted`
 #' @return The fitted values for the observations used to estimate the tree model
 #' @export

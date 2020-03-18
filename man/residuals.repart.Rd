@@ -7,11 +7,11 @@
 \method{residuals}{repart}(object, type = "logit", ...)
 }
 \arguments{
+\item{object}{A classification tree fitted by repart}
+
 \item{type}{The typr of residuals to compute}
 
 \item{...}{Other arguments passed to residuals}
-
-\item{tree}{A classification tree fitted by repart}
 }
 \value{
 A matrix of the classwise residuals
