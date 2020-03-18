@@ -10,6 +10,6 @@ License: MIT + file LICENSE
 RoxygenNote: 7.0.2
 Encoding: UTF-8
 Depends: R (>= 3.5.0)
-Imports: partykit
+Imports: stats, partykit
 Suggests: 
     testthat (>= 2.1.0)
