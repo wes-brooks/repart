@@ -1,5 +1,10 @@
 #' An analog of the built-in table function, but this one allows for incremental values in the cells to be summed up
 #' (a behavior that's necessary for random-effect trees)
+#' 
+#' @param y The outcome variable - a factor represented as a matrix where each column is a class and each row is an observation
+#' @param x The grouping variable
+#' @param weights A vector of prior weights
+#' @return A contingency table with possibly non-integer counts (due to random effects, the indicators aren't constrained to 1/0, and the weights may be any number)
 table.repart <- function(y, x, weights) {
   if (!is.factor(x))
     stop("table.repart only works on factors")

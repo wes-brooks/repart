@@ -6,6 +6,20 @@
 \usage{
 test_splits(splitfun, data, response, outcome, weights)
 }
+\arguments{
+\item{splitfun}{The function that calculates the utility of a proposed split}
+
+\item{data}{The `data.frame` of data to find a split}
+
+\item{response}{The name of the response variable in `data`}
+
+\item{outcome}{A matrix of (non-integer) indicators that specifies the value of the response variable in each observational unit}
+
+\item{weights}{A vector of prior weights}
+}
+\value{
+A named vector giving the utlity of splitting on each variable
+}
 \description{
 Try the possible splits at this node
 }

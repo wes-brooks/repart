@@ -1,16 +1,14 @@
 #' Calculate the classification entropy of a factor
 #' 
-#' @param bins The outcome variable, represented as a data.frame where each column is an indicator for one level of the factor
+#' @param x The factor variable to consider splitting along
+#' @param outcome The outcome variable, represented as a `data.frame` where each column is an indicator for one level of the factor
+#' @param weights A `vector` of prior weights
 #' @return The information entropy of the binned variable
 #' @export
 entropy <- function ( x, outcome, weights ) {
   if (nrow(outcome) == 0) { 0 }
   else {
-    # bins <- next_iter #this should be the assignment indicators for this group, including random effects.
-    # pp <- colSums(outcome) / sum(outcome)
-    # 
-    # sum( ifelse(pp == 0, 0, pp * log2(pp) *) ) * nrow(outcome)
-
+    
     # begin by calculating the entropy if there is no split on this variable
     cs <- colSums(outcome * weights)
     entr_prior <- sum( ifelse( cs == 0, 0, cs * log2(cs / sum(cs)) ) )

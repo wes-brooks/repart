@@ -7,7 +7,9 @@
 \method{residuals}{repart}(tree, type = "logit")
 }
 \arguments{
-\item{node}{A classification tree fitted by repart}
+\item{tree}{A classification tree fitted by repart}
+
+\item{type}{The typr of residuals to compute}
 }
 \value{
 A matrix of the classwise residuals

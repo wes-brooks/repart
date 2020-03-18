@@ -1,5 +1,7 @@
 #' A chi-square test that can work with observation weights and offsets
-chisq.repart <- function(x, ...) {
+#' @param x A table of possibly non-integer counts (due to random effects)
+#' @return A list with elements `statistic` (a chi-squared test statistic) and `parameter` (the number of degrees of freedom for `statistic`)
+chisq.repart <- function(x) {
   E <- matrix(NA, nrow=nrow(x), ncol=ncol(x))
   
   # compute the margins of the contingency table

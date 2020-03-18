@@ -4,7 +4,13 @@
 \alias{chisq.repart}
 \title{A chi-square test that can work with observation weights and offsets}
 \usage{
-chisq.repart(x, ...)
+chisq.repart(x)
+}
+\arguments{
+\item{x}{A table of possibly non-integer counts (due to random effects)}
+}
+\value{
+A list with elements `statistic` (a chi-squared test statistic) and `parameter` (the number of degrees of freedom for `statistic`)
 }
 \description{
 A chi-square test that can work with observation weights and offsets

@@ -7,6 +7,16 @@
 \usage{
 table.repart(y, x, weights)
 }
+\arguments{
+\item{y}{The outcome variable - a factor represented as a matrix where each column is a class and each row is an observation}
+
+\item{x}{The grouping variable}
+
+\item{weights}{A vector of prior weights}
+}
+\value{
+A contingency table with possibly non-integer counts (due to random effects, the indicators aren't constrained to 1/0, and the weights may be any number)
+}
 \description{
 An analog of the built-in table function, but this one allows for incremental values in the cells to be summed up
 (a behavior that's necessary for random-effect trees)

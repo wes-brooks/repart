@@ -1,6 +1,7 @@
 #' Calculate residuals for a classification tree
 #' 
-#' @param node A classification tree fitted by repart
+#' @param tree A classification tree fitted by repart
+#' @param type The typr of residuals to compute
 #' @return A matrix of the classwise residuals
 #' @export
 residuals.repart <- function( tree, type = "logit" ) {
