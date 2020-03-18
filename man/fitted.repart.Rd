@@ -7,6 +7,8 @@
 \method{fitted}{repart}(object, ...)
 }
 \arguments{
+\item{...}{any additional parameters passed to `fitted`}
+
 \item{tree}{The tree model from which to extract the fitted values}
 }
 \value{
