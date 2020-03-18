@@ -45,5 +45,9 @@ make_tree <- function(formula, data, outcome, splitfun, weights = NULL, adjust_t
                terms = stats::terms(formula)
   )
   
-  partykit::as.constparty(ret)
+  # add the 'repart' S3 class name attribute to the result
+  ret <- partykit::as.constparty(ret)
+  class(ret) <- c("repart", class(ret))
+  
+  ret
 }
