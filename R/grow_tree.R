@@ -1,6 +1,6 @@
 grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjust_threshold, minbucket = 5, ...) { 
   ## for less than 30 observations stop here
-  if ( sum(weights) < minbucket ) return( partynode(id = id) )
+  if ( sum(weights) < minbucket ) return( partykit::partynode(id = id) )
   
   ## find best split
   sp <- find_split( response, data, outcome, splitfun, weights, adjust_threshold, ... )
