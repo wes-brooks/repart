@@ -4,7 +4,7 @@
 #' @param minbin The minimum number of observations in a leaf node
 #' @return Maximum entropy that can be achieved by splitting at this node
 #' @export
-test_split <- function(node, minbin = 5) {
+test_split_deprecated <- function(node, minbin = 5) {
   df <- node[[ "data" ]]
   vars <- colnames(df)
   resp_obs <- node[[ "outcome" ]]
