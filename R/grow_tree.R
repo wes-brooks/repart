@@ -3,7 +3,7 @@ grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjus
   if ( sum(weights) < minbucket ) return( partynode(id = id) )
   
   ## find best split
-  sp <- find_split2( response, data, outcome, splitfun, weights, adjust_threshold, ... )
+  sp <- find_split( response, data, outcome, splitfun, weights, adjust_threshold, ... )
   
   ## no split found, stop here
   if ( is.null(sp) ) return( partynode(id = id) ) 
