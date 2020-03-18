@@ -16,7 +16,7 @@ make_tree <- function(formula, data, outcome, splitfun, weights = NULL, adjust_t
   response <- all.vars(formula)[1]
   
   ## data without missing values, response comes last
-  data <- data[ complete.cases(data), c( all.vars( formula )[-1], response ) ]
+  data <- data[ stats::complete.cases(data), c( all.vars( formula )[-1], response ) ]
   
   ## data is factors only
   stopifnot( all( sapply( data, is.factor ) ) ) 
@@ -31,10 +31,10 @@ make_tree <- function(formula, data, outcome, splitfun, weights = NULL, adjust_t
   nodes <- grow_tree(id = 1L, response, data, outcome, weights, splitfun, adjust_threshold, ...)
   
   ## compute terminal node number for each observation 
-  fitted <- fitted_node(nodes, data = data)
+  fitted <- partykit::fitted_node(nodes, data = data)
   
   ## return rich constparty object
-  ret <- party(nodes,
+  ret <- partykit::party(nodes,
                data = data,
                fitted = data.frame(
                  "(fitted)" = fitted,
@@ -42,8 +42,8 @@ make_tree <- function(formula, data, outcome, splitfun, weights = NULL, adjust_t
                  "(weights)" = weights,
                  check.names = FALSE
                ),
-               terms = terms(formula)
+               terms = stats::terms(formula)
   )
   
-  as.constparty(ret)
+  partykit::as.constparty(ret)
 }
