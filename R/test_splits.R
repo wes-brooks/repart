@@ -8,5 +8,4 @@ test_splits <- function(splitfun, data, response, outcome, weights) {
   
   # if there is a threshold adjustment specified then apply it, otherwise return the values from splitfun
   utility
-  
 }
