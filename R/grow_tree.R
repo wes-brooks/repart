@@ -27,7 +27,7 @@ grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjus
     }
     
     ## start recursion on this daugther node
-    kids[[ kidid ]] <- grow_tree(id = as.integer(myid + 1), response, data, outcome, w, splitfun, adjust_threshold, ...) 
+    kids[[ kidid ]] <- grow_tree(id = as.integer(myid + 1), response, data, outcome, w, splitfun, adjust_threshold, minbucket, ...) 
   }
   
   return(

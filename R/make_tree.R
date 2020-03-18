@@ -7,11 +7,11 @@
 #' @param splitfun The function to use in assessing each split
 #' @param weights A `vector` of prior weights
 #' @param adjust_threshold A function used to adjust the output of `splitfun` before assessing possible splits
-#' @param alpha Threshold for deciding whether to split
+#' @param ... Other parameters, such as alpha: threshold for deciding whether to split
 #' @return A classification tree to predict the distribution of the outcome based on the supplied data
 #' @export
 #' 
-make_tree <- function(formula, data, outcome, splitfun, weights = NULL, adjust_threshold = identity, alpha) { 
+make_tree <- function(formula, data, outcome, splitfun, weights = NULL, adjust_threshold = identity, ...) { 
   ## name of the response variable
   response <- all.vars(formula)[1]
   

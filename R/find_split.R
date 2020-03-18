@@ -1,4 +1,4 @@
-find_split <- function(response, data, outcome, splitfun, weights, adjust_threshold, alpha = 0.2, ...) {
+find_split <- function(response, data, outcome, splitfun, weights, adjust_threshold, alpha = 0.2) {
   ## extract response values from data
   # y <- factor(rep(data[[response]], weights))
   

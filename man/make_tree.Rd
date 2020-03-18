@@ -11,7 +11,7 @@ make_tree(
   splitfun,
   weights = NULL,
   adjust_threshold = identity,
-  alpha
+  ...
 )
 }
 \arguments{
@@ -27,7 +27,7 @@ make_tree(
 
 \item{adjust_threshold}{A function used to adjust the output of `splitfun` before assessing possible splits}
 
-\item{alpha}{Threshold for deciding whether to split}
+\item{...}{Other parameters, such as alpha: threshold for deciding whether to split}
 }
 \value{
 A classification tree to predict the distribution of the outcome based on the supplied data
