@@ -6,13 +6,13 @@
 fitted.repart <- function( object, ... ) {
   
   # recover the outcome factor from the input data
-  outcome <- stats::model.matrix( ~ -1 + `(response)`, data = tree$fitted )
+  outcome <- stats::model.matrix( ~ -1 + `(response)`, data = object$fitted )
   fitted <-  matrix( NA, nrow = nrow( outcome ), ncol = ncol( outcome ) )
-  colnames( fitted ) <- levels(tree$fitted[[ "(response)" ]])
+  colnames( fitted ) <- levels(object$fitted[[ "(response)" ]])
   
   # loop over the nodes in the tree and get the residuals from each leaf node
-  for (node in unique( tree$fitted[[ "(fitted)" ]] ) ) {
-    indx <- tree$fitted[[ "(fitted)" ]] == node
+  for (node in unique( object$fitted[[ "(fitted)" ]] ) ) {
+    indx <- object$fitted[[ "(fitted)" ]] == node
     fit <- matrix( rep( colMeans(outcome[indx, ]), each=sum(indx) ), nrow=sum(indx) )
     
     # fill in the fitted values for the observations that ended up in this node
