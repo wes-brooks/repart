@@ -4,7 +4,7 @@
 \alias{fitted.repart}
 \title{Extract the fitted values from the tree model}
 \usage{
-\method{fitted}{repart}(tree)
+\method{fitted}{repart}(object, ...)
 }
 \arguments{
 \item{tree}{The tree model from which to extract the fitted values}
