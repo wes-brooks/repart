@@ -4,7 +4,7 @@
 \alias{sweep_threshold}
 \title{For splitting on a continuous variable, sweep the threshold across the possible values}
 \usage{
-sweep_threshold(x, outcome, weights)
+sweep_threshold(x, outcome, weights, factor_function)
 }
 \arguments{
 \item{x}{The factor variable to consider splitting along}
@@ -12,6 +12,8 @@ sweep_threshold(x, outcome, weights)
 \item{outcome}{The outcome variable, represented as a `data.frame` where each column is an indicator for one level of the factor}
 
 \item{weights}{A `vector` of prior weights}
+
+\item{factor_function}{Function to call after `x` has been discretized at each threshold in the sweep}
 }
 \value{
 A named list with elements `threshold`, which is the threshold that maximizes entropy gain and `gain`, which is the maximized entropy gain.
