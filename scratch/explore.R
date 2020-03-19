@@ -166,5 +166,5 @@ p.re <- sweep(p.re, 1, rowMeans(p.re))
 # adjust the observed outcome with the residuals:
 new_outcome <- outcome - p.re
 # new_tree <- make_tree(df, new_outcome)
-(btree2 <- mytree2(outcome ~ cue + spider + species, data = beetles, outcome = new_outcome))
+(btree2 <- make_tree(outcome ~ cue + spider + species + random, data = beetles, outcome = outcome, splitfun=entropy))
 
