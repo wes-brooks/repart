@@ -35,7 +35,7 @@ grow_tree <- function(id = 1L, response, data, outcome, weights, splitfun, adjus
       id = as.integer(id),
       split = sp,
       kids = kids,
-      info = list( criterion = min( partykit::info_split(sp)$criterion, na.rm=TRUE) )
+      info = list( criterion = min( unlist( partykit::info_split(sp)$criterion ), na.rm=TRUE) )
     ) 
   )
 }
