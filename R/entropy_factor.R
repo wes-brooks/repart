@@ -5,7 +5,7 @@
 #' @param weights A `vector` of prior weights
 #' @return The information entropy of the binned variable
 #' @export
-entropy <- function ( x, outcome, weights ) {
+entropy_factor <- function ( x, outcome, weights ) {
   if (nrow(outcome) == 0) { 0 }
   else {
     
