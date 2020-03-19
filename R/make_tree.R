@@ -1,6 +1,5 @@
 #' Make a classification tree
 #' 
-#' @param data The data frame containing all the input variables
 #' @param formula A `formula` describing the function to be estimated by the table
 #' @param data A `data.frame` containing the data toi be used in fitting the model
 #' @param outcome A `matrix` of binned outcomes for training the tree
