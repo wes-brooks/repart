@@ -4,7 +4,6 @@
 #' @param outcome The outcome variable, represented as a `data.frame` where each column is an indicator for one level of the factor
 #' @param weights A `vector` of prior weights
 #' @return The information entropy of the binned variable
-#' @export
 entropy_factor <- function ( x, outcome, weights ) {
 
   # prepare the contingency table
