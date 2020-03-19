@@ -3,7 +3,6 @@
 #' @param node The node that is being tested
 #' @param minbin The minimum number of observations in a leaf node
 #' @return Maximum entropy that can be achieved by splitting at this node
-#' @export
 test_split_deprecated <- function(node, minbin = 5) {
   df <- node[[ "data" ]]
   vars <- colnames(df)
