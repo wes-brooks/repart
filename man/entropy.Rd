@@ -9,7 +9,7 @@ entropy(x, outcome, weights)
 \arguments{
 \item{x}{The factor variable to consider splitting along}
 
-\item{outcome}{The outcome variable, represented as a `data.frame` where each column is an indicator for one level of the factor}
+\item{outcome}{The outcome variable, represented as a `matrix` where each column is an indicator for one level of the factor}
 
 \item{weights}{A `vector` of prior weights}
 }
