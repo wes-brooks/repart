@@ -2,7 +2,7 @@
 
 S3method(fitted,repart)
 S3method(residuals,repart)
+export(chi_squared)
 export(entropy)
 export(identity)
 export(make_tree)
-export(sweep_threshold)
