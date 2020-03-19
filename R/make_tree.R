@@ -18,9 +18,6 @@ make_tree <- function(formula, data, outcome, splitfun, weights = NULL, adjust_t
   ## data without missing values, response comes last
   data <- data[ stats::complete.cases(data), c( all.vars( formula )[-1], response ) ]
   
-  ## data is factors only
-  stopifnot( all( sapply( data, is.factor ) ) ) 
-  
   if (is.null(weights)) weights <- rep(1L, nrow(data))
   
   ## weights are case weights, i.e., integers
