@@ -2,7 +2,7 @@
 % Please edit documentation in R/chi_squared_factor.R
 \name{chi_squared_factor}
 \alias{chi_squared_factor}
-\title{perform chi-squared test of y vs. x}
+\title{Perform chi-squared test of y vs. x}
 \usage{
 chi_squared_factor(x, outcome, weights)
 }
@@ -17,5 +17,5 @@ chi_squared_factor(x, outcome, weights)
 Log p-value of the chi-squared statistic from the contingency table of x vs outcome.
 }
 \description{
-perform chi-squared test of y vs. x
+Perform chi-squared test of y vs. x
 }

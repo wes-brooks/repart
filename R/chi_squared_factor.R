@@ -1,4 +1,4 @@
-#' perform chi-squared test of y vs. x
+#' Perform chi-squared test of y vs. x
 #' @param x A factor variable to be cross-tabulated with outcome
 #' @param outcome A matrix of binned observed categories
 #' @param weights A vector of prior weights
